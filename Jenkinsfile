@@ -14,22 +14,22 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                sh 'sudo rm -r *;sudo git clone https://github.com/nguyenvandan/jenkins.git'
+                sh 'rm -r *;sudo git clone https://github.com/nguyenvandan/jenkins.git'
             }
         }
         stage('tfsvars create'){
             steps {
-                sh 'sudo cp /home/ubuntu/vars.tf ./jenkins/'
+                sh 'cp /home/ubuntu/vars.tf ./jenkins/'
             }
         }
         stage('terraform init') {
             steps {
-                sh 'sudo /home/ubuntu/terraform init ./jenkins'
+                sh '/home/ubuntu/terraform init ./jenkins'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'ls ./jenkins; sudo /home/ubuntu/terraform plan ./jenkins'
+                sh 'ls ./jenkins; /home/ubuntu/terraform plan ./jenkins'
             }
         }
         stage('terraform ended') {

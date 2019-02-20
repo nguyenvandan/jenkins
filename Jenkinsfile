@@ -24,7 +24,7 @@ pipeline {
         }
         stage('terraform init') {
             steps {
-                sh 'terraform init ./jenkins'
+                sh '/home/ubuntu/terraform init ./jenkins'
             }
         }
         stage('terraform plan') {
@@ -32,7 +32,7 @@ pipeline {
                 sh 'ls ./jenkins; terraform plan ./jenkins'
             }
         }
-        stage('terraform ended') {
+        stage('/home/ubuntu/terraform ended') {
             steps {
                 sh 'echo "Ended....!!"'
             }
